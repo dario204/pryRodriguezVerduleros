@@ -13,9 +13,7 @@ namespace pryRodriguezVerduleros
 {
     public partial class frmRegistrar : Form
     {
-        OleDbCommand miComandoBD;
-        OleDbConnection miConexionDB;
-        OleDbDataReader miLectorBD;
+        clsManejoBD objManejoBD= new clsManejoBD();
         public frmRegistrar()
         {
             InitializeComponent();
@@ -23,8 +21,9 @@ namespace pryRodriguezVerduleros
 
         private void frmRegistrar_Load(object sender, EventArgs e)
         {
-            clsManejoBD objClase = new clsManejoBD;
-            objClase.CargarDatos()
+            objManejoBD.ConectarBaseDatos();
+            objManejoBD.CargarCboProducto(cboProducto);
+            objManejoBD.CargarCboVendedores(cboVendedores);
         }
 
         private void btnRegistar_Click(object sender, EventArgs e)

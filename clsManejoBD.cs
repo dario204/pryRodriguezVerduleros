@@ -9,26 +9,23 @@ namespace pryRodriguezVerduleros
 {
     class clsManejoBD
     {
-        public OleDbConnection miConexion = new OleDbConnection();
-        public OleDbCommand miComando = new OleDbCommand();
-        OleDbDataReader miLector;
+         OleDbConnection miConexion = new OleDbConnection();
+         OleDbCommand miComando = new OleDbCommand();
+         OleDbDataReader miLector;
 
-        string ProveedorAccess = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =";
+        string ProveedorAccess = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=VERDULEROS.mdb;";
 
 
-        public void ConectarBaseDatos(string rutaArchivo)
+        public void ConectarBaseDatos()
         {
             try
             {
 
-
-                miConexion = new OleDbConnection();
-
-                miConexion.ConnectionString = ProveedorAccess + rutaArchivo;
+                miConexion.ConnectionString=ProveedorAccess;
 
                 miConexion.Open();
 
-                MessageBox.Show("Base de datos abierta con éxito!");
+               
             }
             catch (Exception ex)
             {
@@ -36,31 +33,41 @@ namespace pryRodriguezVerduleros
             }
         }
 
-        public void ListarTablasBD(ComboBox cmbTablas, DataGridView dgvTablas, Label lblNombreDB)
+        public void CargarCboVendedores(ComboBox cboVendedores)
         {
-
             try
             {
-                miConexion.Open();
+                miComando.CommandType=System.Data.CommandType.TableDirect;
+                miComando.CommandText = "NombreVendedores";
 
-                DataTable tablas = miConexion.GetSchema("Tables");
+                miLector = miComando.ExecuteReader();
 
-                foreach (DataRow tabla in tablas.Rows)
+                cboVendedores.Items.Clear();
+                while (miLector.Read())
                 {
-                    if (tabla[3].ToString() == "TABLE")
-                    {
-                        cmbTablas.Items.Add(tabla[2].ToString());
-                    }
-
-
+                    cboVendedores.Items.Add(miLector[0]);
                 }
-                miConexion.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            return cadenaConexion;
+            miLector.Close();
+        }
+        public void CargarCboProducto(ComboBox cboProducto)
+        {
+            miComando.CommandType = System.Data.CommandType.TableDirect;
+            miComando.CommandText = "NomProducto";
+
+            miLector = miComando.ExecuteReader();
+
+            cboProducto.Items.Clear();
+            while (miLector.Read())
+            {
+                cboProducto.Items.Add(miLector[0]);
+            }
+            miLector.Close();
         }
 
     }      
@@ -68,14 +75,11 @@ namespace pryRodriguezVerduleros
 
         
 
-        public void MostrarTablasDB(ComboBox cmbTablas, string cadenaConexion, DataGridView dgvTablas)
-        {
-
-        }
+        
 
 
 
-    }
+    
 }
 
 

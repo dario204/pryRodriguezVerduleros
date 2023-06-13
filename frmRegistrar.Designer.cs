@@ -33,47 +33,54 @@
             this.lblProducto = new System.Windows.Forms.Label();
             this.btnRegistar = new System.Windows.Forms.Button();
             this.lblKilos = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboVendedores = new System.Windows.Forms.ComboBox();
-            this.cboProducto = new System.Windows.Forms.ComboBox();
-            this.btnSalir = new System.Windows.Forms.Button();
+            this.mrcRegistro = new System.Windows.Forms.GroupBox();
             this.mtbKilos = new System.Windows.Forms.MaskedTextBox();
-            this.groupBox1.SuspendLayout();
+            this.cboProducto = new System.Windows.Forms.ComboBox();
+            this.cboVendedores = new System.Windows.Forms.ComboBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.mrcRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblVerduleria
             // 
             this.lblVerduleria.AutoSize = true;
-            this.lblVerduleria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVerduleria.Location = new System.Drawing.Point(196, 9);
+            this.lblVerduleria.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVerduleria.ForeColor = System.Drawing.Color.Green;
+            this.lblVerduleria.Location = new System.Drawing.Point(177, 9);
+            this.lblVerduleria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVerduleria.Name = "lblVerduleria";
-            this.lblVerduleria.Size = new System.Drawing.Size(83, 18);
+            this.lblVerduleria.Size = new System.Drawing.Size(276, 29);
             this.lblVerduleria.TabIndex = 0;
-            this.lblVerduleria.Text = "Verduleria";
+            this.lblVerduleria.Text = "Verduleria Lo de Pepe";
             // 
             // lblVendedor
             // 
             this.lblVendedor.AutoSize = true;
-            this.lblVendedor.Location = new System.Drawing.Point(12, 29);
+            this.lblVendedor.Location = new System.Drawing.Point(16, 36);
+            this.lblVendedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVendedor.Name = "lblVendedor";
-            this.lblVendedor.Size = new System.Drawing.Size(109, 13);
+            this.lblVendedor.Size = new System.Drawing.Size(168, 20);
             this.lblVendedor.TabIndex = 2;
             this.lblVendedor.Text = "Nombre del vendedor";
             // 
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(12, 97);
+            this.lblProducto.Location = new System.Drawing.Point(16, 95);
+            this.lblProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(106, 13);
+            this.lblProducto.Size = new System.Drawing.Size(165, 20);
             this.lblProducto.TabIndex = 3;
             this.lblProducto.Text = "Nombre del producto";
             // 
             // btnRegistar
             // 
-            this.btnRegistar.Location = new System.Drawing.Point(328, 82);
+            this.btnRegistar.Enabled = false;
+            this.btnRegistar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistar.Location = new System.Drawing.Point(437, 101);
+            this.btnRegistar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegistar.Name = "btnRegistar";
-            this.btnRegistar.Size = new System.Drawing.Size(84, 33);
+            this.btnRegistar.Size = new System.Drawing.Size(112, 41);
             this.btnRegistar.TabIndex = 6;
             this.btnRegistar.Text = "Registrar";
             this.btnRegistar.UseVisualStyleBackColor = true;
@@ -82,76 +89,87 @@
             // lblKilos
             // 
             this.lblKilos.AutoSize = true;
-            this.lblKilos.Location = new System.Drawing.Point(15, 144);
+            this.lblKilos.Location = new System.Drawing.Point(16, 160);
+            this.lblKilos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKilos.Name = "lblKilos";
-            this.lblKilos.Size = new System.Drawing.Size(29, 13);
+            this.lblKilos.Size = new System.Drawing.Size(46, 20);
             this.lblKilos.TabIndex = 7;
             this.lblKilos.Text = "Kilos";
             // 
-            // groupBox1
+            // mrcRegistro
             // 
-            this.groupBox1.Controls.Add(this.mtbKilos);
-            this.groupBox1.Controls.Add(this.cboProducto);
-            this.groupBox1.Controls.Add(this.cboVendedores);
-            this.groupBox1.Controls.Add(this.lblVendedor);
-            this.groupBox1.Controls.Add(this.lblProducto);
-            this.groupBox1.Controls.Add(this.lblKilos);
-            this.groupBox1.Location = new System.Drawing.Point(21, 43);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(274, 187);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.mrcRegistro.Controls.Add(this.mtbKilos);
+            this.mrcRegistro.Controls.Add(this.cboProducto);
+            this.mrcRegistro.Controls.Add(this.cboVendedores);
+            this.mrcRegistro.Controls.Add(this.lblVendedor);
+            this.mrcRegistro.Controls.Add(this.lblProducto);
+            this.mrcRegistro.Controls.Add(this.lblKilos);
+            this.mrcRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrcRegistro.Location = new System.Drawing.Point(28, 53);
+            this.mrcRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mrcRegistro.Name = "mrcRegistro";
+            this.mrcRegistro.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mrcRegistro.Size = new System.Drawing.Size(365, 230);
+            this.mrcRegistro.TabIndex = 10;
+            this.mrcRegistro.TabStop = false;
+            this.mrcRegistro.Text = "Registro";
             // 
-            // cboVendedores
+            // mtbKilos
             // 
-            this.cboVendedores.FormattingEnabled = true;
-            this.cboVendedores.Location = new System.Drawing.Point(148, 29);
-            this.cboVendedores.Name = "cboVendedores";
-            this.cboVendedores.Size = new System.Drawing.Size(121, 21);
-            this.cboVendedores.TabIndex = 9;
-            this.cboVendedores.SelectedIndexChanged += new System.EventHandler(this.cboVendedores_SelectedIndexChanged);
+            this.mtbKilos.Location = new System.Drawing.Point(197, 154);
+            this.mtbKilos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbKilos.Mask = "99999";
+            this.mtbKilos.Name = "mtbKilos";
+            this.mtbKilos.Size = new System.Drawing.Size(159, 27);
+            this.mtbKilos.TabIndex = 11;
+            this.mtbKilos.ValidatingType = typeof(int);
             // 
             // cboProducto
             // 
             this.cboProducto.FormattingEnabled = true;
-            this.cboProducto.Location = new System.Drawing.Point(148, 97);
+            this.cboProducto.Location = new System.Drawing.Point(196, 95);
+            this.cboProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboProducto.Name = "cboProducto";
-            this.cboProducto.Size = new System.Drawing.Size(121, 21);
+            this.cboProducto.Size = new System.Drawing.Size(160, 28);
             this.cboProducto.TabIndex = 10;
+            // 
+            // cboVendedores
+            // 
+            this.cboVendedores.FormattingEnabled = true;
+            this.cboVendedores.Location = new System.Drawing.Point(197, 36);
+            this.cboVendedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboVendedores.Name = "cboVendedores";
+            this.cboVendedores.Size = new System.Drawing.Size(160, 28);
+            this.cboVendedores.TabIndex = 9;
+            this.cboVendedores.SelectedIndexChanged += new System.EventHandler(this.cboVendedores_SelectedIndexChanged);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(328, 137);
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(437, 169);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(84, 33);
+            this.btnSalir.Size = new System.Drawing.Size(112, 41);
             this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // mtbKilos
-            // 
-            this.mtbKilos.Location = new System.Drawing.Point(148, 144);
-            this.mtbKilos.Mask = "99999";
-            this.mtbKilos.Name = "mtbKilos";
-            this.mtbKilos.Size = new System.Drawing.Size(120, 20);
-            this.mtbKilos.TabIndex = 11;
-            this.mtbKilos.ValidatingType = typeof(int);
-            // 
             // frmRegistrar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 270);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(612, 332);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.mrcRegistro);
             this.Controls.Add(this.btnRegistar);
             this.Controls.Add(this.lblVerduleria);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmRegistrar";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.frmRegistrar_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.mrcRegistro.ResumeLayout(false);
+            this.mrcRegistro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,7 +182,7 @@
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Button btnRegistar;
         private System.Windows.Forms.Label lblKilos;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox mrcRegistro;
         private System.Windows.Forms.ComboBox cboProducto;
         private System.Windows.Forms.ComboBox cboVendedores;
         private System.Windows.Forms.Button btnSalir;
