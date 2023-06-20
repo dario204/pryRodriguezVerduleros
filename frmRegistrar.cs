@@ -28,11 +28,23 @@ namespace pryRodriguezVerduleros
 
         private void btnRegistar_Click(object sender, EventArgs e)
         {
-            
+            if (cboVendedores.SelectedIndex != -1 && cboProducto.SelectedIndex != -1 && mtbKilos.Text != "")
+            {
+                objManejoBD.RegistrarVentas(cboVendedores.SelectedValue.ToString(), cboProducto.SelectedValue.ToString(),dtpFecha.Value, mtbKilos.Text);
+            }
+            else
+            {
+                //cargar datos
+            }
 
         }
 
         private void cboVendedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblKilos_Click(object sender, EventArgs e)
         {
 
         }

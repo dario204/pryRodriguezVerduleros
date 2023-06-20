@@ -5,25 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.Data;
+
 namespace pryRodriguezVerduleros
 {
     class clsManejoBD
     {
-         OleDbConnection miConexion = new OleDbConnection();
-         OleDbCommand miComando = new OleDbCommand();
+         OleDbConnection miConexion;
+         OleDbCommand miComando;
          OleDbDataReader miLector;
 
-        string ProveedorAccess = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=VERDULEROS.mdb;";
+        string CadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=VERDULEROS.mdb;";
 
 
         public void ConectarBaseDatos()
         {
             try
             {
-
-                miConexion.ConnectionString=ProveedorAccess;
-
-                miConexion.Open();
+               miConexion= new OleDbConnection();
+               miConexion.ConnectionString = CadenaConexion;
+               miConexion.Open();
 
                
             }
@@ -37,16 +38,22 @@ namespace pryRodriguezVerduleros
         {
             try
             {
-                miComando.CommandType=System.Data.CommandType.TableDirect;
-                miComando.CommandText = "NombreVendedores";
+               miComando=new OleDbCommand();
+                miComando.CommandType = System.Data.CommandType.TableDirect;
+                miComando.CommandText = "Vendedores";
 
                 miLector = miComando.ExecuteReader();
-
                 cboVendedores.Items.Clear();
-                while (miLector.Read())
+                DataTable dt = new DataTable();
+
+                if (miLector.HasRows)
                 {
-                    cboVendedores.Items.Add(miLector[0]);
+                    dt.Load(miLector);
+                    cboVendedores.DataSource = dt;
+                    cboVendedores.ValueMember = "IdVendedor";
+                    cboVendedores.DisplayMember = "NomVendedor";
                 }
+                miLector.Close();
                 
             }
             catch (Exception ex)
@@ -57,17 +64,45 @@ namespace pryRodriguezVerduleros
         }
         public void CargarCboProducto(ComboBox cboProducto)
         {
-            miComando.CommandType = System.Data.CommandType.TableDirect;
-            miComando.CommandText = "NomProducto";
-
-            miLector = miComando.ExecuteReader();
-
-            cboProducto.Items.Clear();
-            while (miLector.Read())
+            try
             {
-                cboProducto.Items.Add(miLector[0]);
+                miComando.Connection = miConexion;
+                miComando.CommandType = System.Data.CommandType.TableDirect;
+                miComando.CommandText = "Productos";
+
+                miLector = miComando.ExecuteReader();
+                cboProducto.Items.Clear();
+                DataTable dt = new DataTable();
+
+                if (miLector.HasRows)
+                {
+                    dt.Load(miLector);
+                    cboProducto.DataSource = dt;
+                    cboProducto.ValueMember = "IdProducto";
+                    cboProducto.DisplayMember = "NomProducto";
+                }
+                miLector.Close();
             }
-            miLector.Close();
+            catch (Exception ex)
+            {
+              MessageBox.Show("Error: " + ex.Message);
+            }
+           
+        }
+        public void RegistrarVentas(string vendedor, string producto, DateTime FechaVenta, string kilos)
+        {
+            try
+            {
+                miComando.Connection = miConexion;
+                miComando.CommandType = System.Data.CommandType.Text;
+
+                miComando.CommandText= "INSERT INTO Ventas ([CodVendedor], [CodProducto]," + "Fecha, Kilos) VALUES (" + vendedor + "," + producto + "," + "´" + FechaVenta + "´" + "," + kilos + ")";
+                miComando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
     }      
