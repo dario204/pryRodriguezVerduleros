@@ -21,22 +21,13 @@ namespace pryRodriguezVerduleros
 
         private void frmRegistrar_Load(object sender, EventArgs e)
         {
-            objManejoBD.ConectarBaseDatos();
-            objManejoBD.CargarCboProducto(cboProducto);
-            objManejoBD.CargarCboVendedores(cboVendedores);
+            objManejoBD.CargaDatos(cboVendedores, cboProducto);
         }
 
         private void btnRegistar_Click(object sender, EventArgs e)
         {
-            if (cboVendedores.SelectedIndex != -1 && cboProducto.SelectedIndex != -1 && mtbKilos.Text != "")
-            {
-                objManejoBD.RegistrarVentas(cboVendedores.SelectedValue.ToString(), cboProducto.SelectedValue.ToString(),dtpFecha.Value, mtbKilos.Text);
-            }
-            else
-            {
-                //cargar datos
-            }
-
+            objManejoBD.RegistrarVentas(Convert.ToInt32(cboVendedores.SelectedValue), Convert.ToInt32(cboProducto), dtpFecha.Value, Convert.ToInt32(txtKilos.Text));
+            MessageBox.Show("Su venta se a registrado con exito", "", MessageBoxButtons.OK);
         }
 
         private void cboVendedores_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,6 +38,19 @@ namespace pryRodriguezVerduleros
         private void lblKilos_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtKilos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     

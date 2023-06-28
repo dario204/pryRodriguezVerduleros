@@ -35,12 +35,12 @@
             this.btnRegistar = new System.Windows.Forms.Button();
             this.lblKilos = new System.Windows.Forms.Label();
             this.mrcRegistro = new System.Windows.Forms.GroupBox();
-            this.mtbKilos = new System.Windows.Forms.MaskedTextBox();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.cboProducto = new System.Windows.Forms.ComboBox();
             this.cboVendedores = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.lblFecha = new System.Windows.Forms.Label();
+            this.txtKilos = new System.Windows.Forms.TextBox();
             this.mrcRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             this.lblVerduleria.AutoSize = true;
             this.lblVerduleria.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVerduleria.ForeColor = System.Drawing.Color.Green;
-            this.lblVerduleria.Location = new System.Drawing.Point(177, 9);
+            this.lblVerduleria.Location = new System.Drawing.Point(158, 9);
             this.lblVerduleria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVerduleria.Name = "lblVerduleria";
             this.lblVerduleria.Size = new System.Drawing.Size(276, 29);
@@ -80,7 +80,7 @@
             // 
             this.btnRegistar.Enabled = false;
             this.btnRegistar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistar.Location = new System.Drawing.Point(532, 82);
+            this.btnRegistar.Location = new System.Drawing.Point(479, 100);
             this.btnRegistar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistar.Name = "btnRegistar";
             this.btnRegistar.Size = new System.Drawing.Size(112, 41);
@@ -102,9 +102,9 @@
             // 
             // mrcRegistro
             // 
+            this.mrcRegistro.Controls.Add(this.txtKilos);
             this.mrcRegistro.Controls.Add(this.lblFecha);
             this.mrcRegistro.Controls.Add(this.dtpFecha);
-            this.mrcRegistro.Controls.Add(this.mtbKilos);
             this.mrcRegistro.Controls.Add(this.cboProducto);
             this.mrcRegistro.Controls.Add(this.cboVendedores);
             this.mrcRegistro.Controls.Add(this.lblVendedor);
@@ -115,20 +115,26 @@
             this.mrcRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.mrcRegistro.Name = "mrcRegistro";
             this.mrcRegistro.Padding = new System.Windows.Forms.Padding(4);
-            this.mrcRegistro.Size = new System.Drawing.Size(487, 315);
+            this.mrcRegistro.Size = new System.Drawing.Size(443, 261);
             this.mrcRegistro.TabIndex = 10;
             this.mrcRegistro.TabStop = false;
             this.mrcRegistro.Text = "Registro";
             // 
-            // mtbKilos
+            // lblFecha
             // 
-            this.mtbKilos.Location = new System.Drawing.Point(196, 207);
-            this.mtbKilos.Margin = new System.Windows.Forms.Padding(4);
-            this.mtbKilos.Mask = "99999";
-            this.mtbKilos.Name = "mtbKilos";
-            this.mtbKilos.Size = new System.Drawing.Size(210, 27);
-            this.mtbKilos.TabIndex = 11;
-            this.mtbKilos.ValidatingType = typeof(int);
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(16, 153);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(55, 20);
+            this.lblFecha.TabIndex = 13;
+            this.lblFecha.Text = "Fecha";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(196, 153);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(210, 27);
+            this.dtpFecha.TabIndex = 12;
             // 
             // cboProducto
             // 
@@ -152,36 +158,29 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(532, 148);
+            this.btnSalir.Location = new System.Drawing.Point(479, 185);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(112, 41);
             this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // dtpFecha
+            // txtKilos
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(196, 153);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(210, 27);
-            this.dtpFecha.TabIndex = 12;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(16, 153);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(55, 20);
-            this.lblFecha.TabIndex = 13;
-            this.lblFecha.Text = "Fecha";
+            this.txtKilos.Location = new System.Drawing.Point(196, 207);
+            this.txtKilos.Name = "txtKilos";
+            this.txtKilos.Size = new System.Drawing.Size(210, 27);
+            this.txtKilos.TabIndex = 14;
+            this.txtKilos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKilos_KeyPress);
             // 
             // frmRegistrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(679, 393);
+            this.ClientSize = new System.Drawing.Size(600, 341);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.mrcRegistro);
             this.Controls.Add(this.btnRegistar);
@@ -209,9 +208,9 @@
         private System.Windows.Forms.ComboBox cboProducto;
         private System.Windows.Forms.ComboBox cboVendedores;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.MaskedTextBox mtbKilos;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.TextBox txtKilos;
     }
 }
 
